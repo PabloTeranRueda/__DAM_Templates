@@ -3,19 +3,32 @@ git clone MyRepo
 
 :::::::::::::: Branches ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: *CREATE* new branch: git checkout -b OR switch -c
-git checkout -b branchName / git switch -c branchName
-git branch --set-upstream-to=origin/branchName branchName
+git checkout -b <branchName> / git switch -c <branchName>
+git branch --set-upstream-to=origin/<branchName> <branchName>
 
-:: *CHECK* current branch | existing branches
+:: *CHECK* branches
+::current local branch | local existing branches::
 git status | git branch
+    ::View all branches (remote and)::
+    git branch -a
+    ::View remote branches only::
+    git branch -r
 
 :: *MOVE* to branch: git checkout OR git switch
-git switch branchName / git switch branchName
+git switch <branchName> / git switch <branchName>
 
 :: *MERGE* branches
 [Move to the branch that will receive the merge (myBranch)]
 git merge branchToMerge
-[git push origin myBranch(if necessary)]
+[git push origin myBranch (-- force) (if necessary)]
+
+:: *DELETE* branch
+    ::Locally::
+    git branch -d <local branchName>
+
+    ::Remotely::
+    git push origin --delete remote<branchName> | git push -d <remote_name> <<branchName>>
+    git fetch -p
 
 :::::::::::::: Files operations ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: *PULL* from *SAME* counterpart branch
@@ -28,14 +41,27 @@ git pull origin myBranch
 :: *ADD* file to future commit. This is stage changes. -> stage specific change / stage all changes
 git add MyFile / git add -A
 
+:: *UNDO ADD*. Unstage files
+git restore --staged file-to-unstage.txt
+
 :: *COMMIT* changes
 git commit -m "ADD/UPDATE: myChanges"
+
+:: *UNDO UNPUSHED* commit
+    ::::Keeping the work::::
+    git reset --soft HEAD~1
+    
+    ::::Destroying the work::::
+    git reset --hard HEAD~1
 
 :: *PUSH* changes to *SAME* counterpart branch
 git push
 
 :: *PUSH* changes to *SPECIFIC* branch 
 git push origin myBranch
+
+:: *UNDO PUSHED* commit
+git reset --hard HEAD~1
 
 :: *CHECK STATUS* of added/commited changes 
 git push status
@@ -44,8 +70,6 @@ git push status
 git log
 [Exit with key 'q']
 
-:: Revert commited push
-git reset --hard HEAD~1
 
 :::::::::::::: .gitignore ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: myFile.txt
