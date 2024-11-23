@@ -1,0 +1,50 @@
+:: Check current directory
+pwd
+
+:: Go to Root
+cd /
+
+:: Go to personal directory (~ is written by Alt+126 or AltGr+4)
+cd ~
+
+:: Go to directory (absoluteRoot|relativeRoot)
+cd "C://<folder>" | cd ./<folder> (from current dir) OR cd ../<folder> (from upper dir) 
+
+:: List dir undetailed | detailed
+ls | ll
+
+:: Create dir(s)
+mkdir <directory> <directory2> <directory3>
+
+:: Delete <directory>
+rm <nombre_archivo> 
+:: Delete dir and subdirs. /q is for avoiding the confirmation question
+rm -r <directory>
+
+:: Create file
+touch <fileName>
+:: Overwrite file
+echo > <fileName>
+:: Append to file
+echo <text> >> <fileName>
+
+:: Detele file
+rm <fileName>
+
+:: Rename file
+mv <oldName> <newName>
+
+:: Read file
+    :: Short file
+    cat <fileRoot>
+
+    :: Long file. Use keyboard arrows, RePag or AvPag to navigate through the pages
+    more <fileRoot>
+
+: Move file or folder
+mv <sourceRoot> <targetRoot>
+
+::Clear console
+clear
+
+:: Characters are scaped by \. You can also write the texts between "".

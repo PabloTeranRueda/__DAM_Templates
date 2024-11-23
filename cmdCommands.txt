@@ -1,0 +1,48 @@
+:: Check current directory
+chdir
+OR
+cd
+
+:: Go to Root
+cd /
+
+:: Go to personal directory
+cd %HOMEPAHT% OR cd c:\Users\<userName>
+
+:: Go to directory (absoluteRoot|relativeRoot)
+cd "C://<folder>" | cd ./<folder> (from current dir) OR cd ../<folder> (from upper dir) 
+
+:: List dir
+dir
+
+:: Create dir(s)
+md <directory> <directory2> <directory3>
+
+:: Delete <directory>
+rmdir <nombre_archivo> 
+:: Delete dir and subdirs. /q is for avoiding the confirmation question
+rmdir /s /q <directory>
+
+:: Create file
+echo. > <fileName>
+:: Overwrite file
+echo > <fileName>
+:: Append to file
+echo <text> >> <fileName>
+
+:: Detele file
+del <fileName>
+
+:: Rename file
+ren <oldName> <newName>
+
+:: Read file
+type <fileRoot>
+
+: Move file or folder
+move <sourceRoot> <targetRoot>
+
+::Clear console
+cls
+
+:: Characters are scaped by ^
