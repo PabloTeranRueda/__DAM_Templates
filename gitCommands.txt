@@ -1,0 +1,62 @@
+:: Clone a repository
+git clone MyRepo
+
+:::::::::::::: Branches ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: *CREATE* new branch: git checkout -b OR switch -c
+git checkout -b branchName / git switch -c branchName
+git branch --set-upstream-to=origin/branchName branchName
+
+:: *CHECK* current branch | existing branches
+git status | git branch
+
+:: *MOVE* to branch: git checkout OR git switch
+git switch branchName / git switch branchName
+
+:: *MERGE* branches
+[Move to the branch that will receive the merge (myBranch)]
+git merge branchToMerge
+[git push origin myBranch(if necessary)]
+
+:::::::::::::: Files operations ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: *PULL* from *SAME* counterpart branch
+git pull
+
+:: *PULL* changes to *SPECIFIC* branch
+(OPTIONAL) git fetch origin myBranch 
+git pull origin myBranch
+
+:: *ADD* file to future commit. This is stage changes. -> stage specific change / stage all changes
+git add MyFile / git add -A
+
+:: *COMMIT* changes
+git commit -m "ADD/UPDATE: myChanges"
+
+:: *PUSH* changes to *SAME* counterpart branch
+git push
+
+:: *PUSH* changes to *SPECIFIC* branch 
+git push origin myBranch
+
+:: *CHECK STATUS* of added/commited changes 
+git push status
+
+:: *PRINT LOG*
+git log
+[Exit with key 'q']
+
+:: Revert commited push
+git reset --hard HEAD~1
+
+:::::::::::::: .gitignore ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: myFile.txt
+:: myFolder/
+:: *.txt
+
+:::::::::::::: Others ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: Correct commits' messages
+git commit –ammend
+[modify messages. Leave pick for those to maintain and reword for those to modify]
+git push --force origin myBranch
+
+:: Print changes in console as colors line
+git log --graph --online
