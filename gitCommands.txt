@@ -4,7 +4,7 @@ git clone MyRepo
 :::::::::::::: Branches ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: *CREATE* new branch: git checkout -b OR switch -c
 git checkout -b <branchName> / git switch -c <branchName>
-git branch --set-upstream-to=origin/<branchName> <branchName>
+git branch --set-upstream-to=origin/<branchName> <branchName> -> git push --set-upstream origin <branchName>
 
 :: *CHECK* branches
 ::current local branch | local existing branches::
@@ -84,3 +84,18 @@ git push --force origin myBranch
 
 :: Print changes in console as colors line
 git log --graph --online
+
+
+
+:: Create SSH key and configure it
+
+1. GitHub -> userSettings -> SSH and GPG keys -> new SSH key -> [wait at this page]
+2. [on Bash] ssh-keygen -t ed25519 -C "<email>"
+3. Enter another root or just hit Enter key
+4. Provide a password and repeat it
+5. eval "$(ssh-agent -s)"
+6. ssh-add <ssh private root> (e.g.: ~/.ssh/id_ed25519)
+7. write your password
+8. Go to the root where the public ssh file (.pub) was saved -> code <ssh.pub root>
+9. Copy the content of .pub in the page of step 1
+10. Give a title and set 'Key Type' as 'Authentication Key'
