@@ -55,7 +55,7 @@ git commit -m "ADD/UPDATE: myChanges"
     git reset --hard HEAD~1
 
 :: *PUSH* changes to *SAME* counterpart branch
-git push
+git push | git push origin <branch>
 
 :: *PUSH* changes to *SPECIFIC* branch 
 git push origin myBranch
